@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { pronounceWord } from './pronounceWord'
 
 function WordsSection({ selectedLesson, onWordClick }) {
   const [words, setWords] = useState([])
@@ -20,11 +21,6 @@ function WordsSection({ selectedLesson, onWordClick }) {
     }
   }, [selectedLesson])
 
-  const pronounceWord = (word) => {
-    const utterance = new SpeechSynthesisUtterance(word)
-    utterance.lang = 'en-EN'
-    window.speechSynthesis.speak(utterance)
-  }
 
   if (!selectedLesson) {
     return null
